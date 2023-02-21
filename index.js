@@ -31,6 +31,7 @@ async function run() {
     console.log("File saved");
   });
 
+  //  Hubstaff.com Job Board
   await page.goto(
     "https://talent.hubstaff.com/search/jobs?search%5Bkeywords%5D=&page=1&search%5Btype%5D=&search%5Blast_slider%5D=&search%5Bnewer_than%5D=&search%5Bnewer_than%5D=&search%5Bpayrate_start%5D=1&search%5Bpayrate_end%5D=100%2B&search%5Bpayrate_null%5D=0&search%5Bpayrate_null%5D=1&search%5Bbudget_start%5D=1&search%5Bbudget_end%5D=100000%2B&search%5Bbudget_null%5D=0&search%5Bbudget_null%5D=1&search%5Bexperience_level%5D=1&search%5Bcountries%5D%5B%5D=&search%5Blanguages%5D%5B%5D=&search%5Bsort_by%5D=relevance"
   );
@@ -49,6 +50,30 @@ async function run() {
 
   // Save data to JSON file
   fs.writeFile("hubJobs.json", JSON.stringify(hubJobs), (err) => {
+    if (err) throw err;
+    console.log("File saved");
+  });
+
+  // Dice.com Job Board
+  await page.goto(
+    "https://www.dice.com/jobs?q=junior%20developer&countryCode=US&radius=30&radiusUnit=mi&page=1&pageSize=20&filters.isRemote=true&language=en",
+    {
+      waitUntil: "networkidle0",
+    }
+  );
+
+  const diceJobs = await page.evaluate(() =>
+    Array.from(document.querySelectorAll("#searchDisplay-div .card"), (e) => ({
+      jobTitle: e.querySelector(".card-title-link").innerText,
+      companyName: e.querySelector(".ng-star-inserted").innerText,
+      companyLocation: e.querySelector(".search-result-location").innerText,
+      date: e.querySelector(".posted-date").innerText,
+      url: e.querySelector(".card-title-link").href,
+    }))
+  );
+
+  // Save data to JSON file
+  fs.writeFile("diceJobs.json", JSON.stringify(diceJobs), (err) => {
     if (err) throw err;
     console.log("File saved");
   });
