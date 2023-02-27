@@ -1,7 +1,9 @@
-const fs = require("fs");
 const puppeteer = require("puppeteer");
+const fs = require("fs");
 
-async function run() {
+// Web scraper setup
+
+async function runScrape() {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.setUserAgent(
@@ -26,7 +28,7 @@ async function run() {
   );
 
   // Save data to JSON file
-  fs.writeFile("indeedJobs.json", JSON.stringify(indeedJobs), (err) => {
+  fs.writeFile("src/indeedJobs.json", JSON.stringify(indeedJobs), (err) => {
     if (err) throw err;
     console.log("File saved");
   });
@@ -49,7 +51,7 @@ async function run() {
   );
 
   // Save data to JSON file
-  fs.writeFile("hubJobs.json", JSON.stringify(hubJobs), (err) => {
+  fs.writeFile("src/hubJobs.json", JSON.stringify(hubJobs), (err) => {
     if (err) throw err;
     console.log("File saved");
   });
@@ -73,7 +75,7 @@ async function run() {
   );
 
   // Save data to JSON file
-  fs.writeFile("diceJobs.json", JSON.stringify(diceJobs), (err) => {
+  fs.writeFile("src/diceJobs.json", JSON.stringify(diceJobs), (err) => {
     if (err) throw err;
     console.log("File saved");
   });
@@ -81,4 +83,4 @@ async function run() {
   await browser.close();
 }
 
-run();
+module.exports = { runScrape };
