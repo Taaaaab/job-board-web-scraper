@@ -2,6 +2,7 @@ const express = require("express");
 require("dotenv").config();
 const compression = require("compression");
 const cors = require("cors");
+const path = require("path");
 const { runScrape } = require("./web-scraper");
 const indeedJobs = require("./indeedJobs.json");
 const hubJobs = require("./hubJobs.json");
@@ -11,9 +12,9 @@ const app = express();
 
 // View engine setup
 
-app.set("views", __dirname + "/views");
+app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
-app.use(express.static(__dirname + "public"));
+app.use(express.static(path.join(__dirname, "public")));
 
 // Third-Party Middleware
 
@@ -28,7 +29,7 @@ app.use(express.urlencoded({ extended: true }));
 // * Routes * //
 
 app.get("/", (req, res) => {
-  runScrape();
+  // runScrape();
   res.render("index", {
     indeedList: indeedJobs,
     hubList: hubJobs,

@@ -5,11 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Job Board Web Scraper</title>
+    <link href="./styles/style.css" rel="stylesheet" />
   </head>
   <body>
     <div class="container">
-      <h1>Job Board Web Scraper</h1>
-      <div><% for (job of diceList) {%> <%= job.jobTitle %> <%}%></div>
+      <header>
+        <h2 class="text-gray-600">Job Board Web Scraper</h2>
+      </header>
+
+      <div>
+        <h4>Indeed Jobs</h4>
+
+        <div>
+          <!-- cards go here -->
+          <div>
+            <img src="./img/indeed.png" alt="indeed logo" />
+            <% for (job of indeedList) {%>
+            <span> <%= job.jobTitle %> </span>
+            <span> <%= job.companyName %> </span>
+            <span> <%= job.companyLocation %> </span>
+            <span> <%= job.date %> </span>
+            <a href="<%= job.url %>">Link</a>
+            <%}%>
+          </div>
+        </div>
+        <h4>Dice Jobs</h4>
+        <div><% for (job of diceList) {%> <%= job.jobTitle %> <%}%></div>
+      </div>
     </div>
   </body>
 </html>
