@@ -5,33 +5,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Job Board Web Scraper</title>
-    <link href="./styles/style.css" rel="stylesheet" />
+    <link href="./style.css" rel="stylesheet" />
   </head>
   <body>
     <div class="container">
       <header>
-        <h2 class="text-gray-600">Job Board Web Scraper</h2>
+        <h1>Job Board Web Scraper</h1>
       </header>
 
-      <div>
-        <h4>Indeed Jobs</h4>
+      <main>
+        <h2>Indeed Jobs</h2>
 
-        <div>
+        <div class="card-container">
           <!-- cards go here -->
-          <div>
+          <% for (job of indeedList) {%>
+          <div class="card">
             <img src="./img/indeed.png" alt="indeed logo" />
-            <% for (job of indeedList) {%>
-            <span> <%= job.jobTitle %> </span>
-            <span> <%= job.companyName %> </span>
-            <span> <%= job.companyLocation %> </span>
+            <span class="title"> <%= job.jobTitle %> </span>
+            <span> <%= job.companyName %>, <%= job.companyLocation %> </span>
             <span> <%= job.date %> </span>
             <a href="<%= job.url %>">Link</a>
-            <%}%>
           </div>
+          <%}%>
         </div>
-        <h4>Dice Jobs</h4>
-        <div><% for (job of diceList) {%> <%= job.jobTitle %> <%}%></div>
-      </div>
+
+        <h2>Hubstaff Jobs</h2>
+
+        <div class="card-container">
+          <!-- cards go here -->
+          <% for (job of hubList) {%>
+          <div class="card">
+            <img src="./img/hubstaff.png" alt="hubstaff logo" />
+            <span class="title"> <%= job.jobTitle %> </span>
+            <span> <%= job.companyName %></span>
+            <span><%= job.companyDescription %> </span>
+            <a href="<%= job.url %>">Link</a>
+          </div>
+          <%}%>
+        </div>
+
+        <h2>Dice Jobs</h2>
+
+        <div class="card-container">
+          <!-- cards go here -->
+          <% for (job of diceList) {%>
+          <div class="card">
+            <img src="./img/dice.png" alt="dice logo" />
+            <span class="title"> <%= job.jobTitle %> </span>
+            <span> <%= job.companyName %>, <%= job.companyLocation %></span>
+            <span><%= job.date %> </span>
+            <a href="<%= job.url %>">Link</a>
+          </div>
+          <%}%>
+        </div>
+      </main>
+      <footer>
+        <small>Created by Owen W.</small>
+      </footer>
     </div>
   </body>
 </html>
