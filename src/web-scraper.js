@@ -28,7 +28,7 @@ async function runScrape() {
   );
 
   // Save data to JSON file
-  fs.writeFile("src/indeedJobs.json", JSON.stringify(indeedJobs), (err) => {
+  fs.writeFile("./indeedJobs.json", JSON.stringify(indeedJobs), (err) => {
     if (err) throw err;
     console.log("File saved");
   });
@@ -51,7 +51,7 @@ async function runScrape() {
   );
 
   // Save data to JSON file
-  fs.writeFile("src/hubJobs.json", JSON.stringify(hubJobs), (err) => {
+  fs.writeFile("./hubJobs.json", JSON.stringify(hubJobs), (err) => {
     if (err) throw err;
     console.log("File saved");
   });
@@ -75,12 +75,14 @@ async function runScrape() {
   );
 
   // Save data to JSON file
-  fs.writeFile("src/diceJobs.json", JSON.stringify(diceJobs), (err) => {
+  fs.writeFile("./diceJobs.json", JSON.stringify(diceJobs), (err) => {
     if (err) throw err;
     console.log("File saved");
   });
 
   await browser.close();
 }
+
+// runScrape();
 
 module.exports = { runScrape };
