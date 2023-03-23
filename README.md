@@ -2,31 +2,47 @@
 
 Web scraper of indeed.com, hubstaff.com & dice.com job board postings using Puppeteer. Complete project has script to scrape 3 job boards, save data as 3 JSON files which are then displayed using Node with Express (EJS template engine).
 
-![Alt text](https://github.com/Taaaaab/personal-portfolio/blob/main/photos/job-board.png?raw=true "Screenshot")
+![Alt text](https://github.com/Taaaaab/personal-portfolio/blob/main/photos/job-board.png?raw=true 'Screenshot')
 
-## Built With
+## Requirements
 
-- Express/Node
-- EJS Template Engine
-- CSS
+- node.js version >= 18.15.0
 
 ## Installation
-
-Can run web-scraper separately by cloning repository, installing dependencies and modifying web-scraper.js file:
 
 1. Clone this project:
    `https://github.com/Taaaaab/job-board-web-scraper.git`
 
 2. Once you have cloned this project, you can install the required dependencies by using:
-   `npm install`
 
-3. To run web-scraper separately:
-   `cd src/`
-   Uncomment `// runScrape();` line at the bottom of web-scraper.js
-   `node web-scraper.js`
+   ```
+   cd job-board-web-scraper
+   npm install
+   ```
 
-4. A live demo of the project can be started by using:
-   `npm start`
+3. A live demo of the project can be started by using:
+
+```
+npm start
+```
+
+## Usage
+
+Can run web-scraper separately by cloning repository, installing dependencies and modifying web-scraper.js file:
+
+1. To run web-scraper separately:
+
+   ```
+   cd src/
+   ```
+
+2. Uncomment `// runScrape();` line at the bottom of web-scraper.js (line 86)
+
+3. Run the web-scraper.js file
+
+   ```
+   node web-scraper.js
+   ```
 
 ## 🤝 Contributing
 
