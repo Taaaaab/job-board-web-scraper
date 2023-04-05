@@ -2,7 +2,7 @@
 
 Web scraper of indeed.com, hubstaff.com & dice.com job board postings using Puppeteer. Complete project has script to scrape 3 job boards, save data as 3 JSON files which are then displayed using Node with Express (EJS template engine).
 
-![Alt text](https://github.com/Taaaaab/personal-portfolio/blob/main/photos/job-board.png?raw=true 'Screenshot')
+![Alt text](https://github.com/Taaaaab/personal-portfolio/blob/main/src/assets/job-board.png?raw=true 'Screenshot')
 
 ## Requirements
 
